@@ -12,12 +12,18 @@ namespace Casino.Controller
     {
         string[] Partie()
         {
+            NbAlea alea;
             string[] tirage = new string[3];
             int i;
             for (i = 0; i< 3; i++)
             {
-                tirage[i] = NbAlea.NbAlea();
+                tirage[i] = alea.NbAlea();
             }
+            if (tirage[0] == tirage[1] && tirage[0] == tirage[2]){
+                tirage[4] = "true";
+            } else {
+                tirage[4] = "false";
+                }
 
             return tirage;
         } 
