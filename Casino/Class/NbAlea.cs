@@ -8,12 +8,16 @@ namespace Casino.Class
 {
     public class NbAlea
     {
-        public int nombre;
+        public int[] nombre = new int[3];
 
         public NbAlea()
         {
             Random rand = new Random();
-            this.nombre = rand.Next(1, 9);
+
+            for (int i = 0; i < nombre.Length; i++)
+            {
+                this.nombre[i] = rand.Next(1, 9);
+            }
         }
     }
 }

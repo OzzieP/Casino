@@ -10,27 +10,62 @@ namespace Casino.Controller
 {
     public class ControllerNbAlea
     {
-        string[] Partie()
+        public string[] tirage = new string[3];
+
+        // Méthode pour le premier mode de jeu
+        public bool Partie()
         {
             NbAlea alea = new NbAlea();
-            string[] tirage = new string[3];
             int i;
+            string nbGagnant = "7";
+            bool result;
 
-            for (i = 0; i < 3; i++)
+            for (i = 0; i < alea.nombre.Length; i++)
             {
-                tirage[i] = alea.nombre.ToString();
+                this.tirage[i] = alea.nombre[i].ToString();
             }
 
-            if (tirage[0] == tirage[1] && tirage[0] == tirage[2])
+            if (tirage[0] == nbGagnant && tirage[1] == nbGagnant && tirage[2] ==  nbGagnant)
             {
-                tirage[4] = "true";
+                result = true;
             }
             else
             {
-                tirage[4] = "false";
+                result = false;
             }
 
-            return tirage;
+            return result;
+        }
+
+        // Méthode pour le deuxième mode de jeu
+        public bool PartieMode2(int nbGeneration)
+        {
+            string nbGagnant = "7";
+            bool result;
+
+            do
+            {
+                NbAlea alea = new NbAlea();
+
+                for (int j = 0; j < alea.nombre.Length; j++)
+                {
+                    this.tirage[j] = alea.nombre[j].ToString();
+                }
+
+                if (tirage[0] == nbGagnant && tirage[1] == nbGagnant && tirage[2] == nbGagnant)
+                {
+                    result = true;
+                    return result;
+                }
+                else
+                {
+                    result = false;
+                    nbGeneration--;
+                }
+
+            } while (nbGeneration > 0);
+
+            return result;
         }
     }
 }

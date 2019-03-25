@@ -8,17 +8,8 @@ namespace Casino
 {
      public class Joueur
     {
-        #region propriétés 
-        private string Nom;
-
-        public string nom
-        {
-            get { return Nom; }
-            set { Nom = value; }
-        }
-
+        #region Propriétés 
         private int Credit;
-
         public int credit
         {
             get { return Credit; }
@@ -26,26 +17,36 @@ namespace Casino
         }
         #endregion
 
-
         #region Constructeur
-        public Joueur(string nom, int credit)
+        public Joueur(int credit)
         {
-            this.nom = nom;
             this.credit = credit;
-
         }
         #endregion
 
-        #region Methodes
-        public void AjouterCredit(int nombre)
+        #region Méthodes
+        public void AjouterCredit(int? tour)
         {
-            credit += nombre;
+            if (tour.HasValue)
+            {
+                this.credit += 10 * tour.Value;
+            }
+            else
+            {
+                this.credit += 10;
+            }
         }
 
-        public void RetirerCredit(int nombre)
+        public void RetirerCredit(int? tour)
         {
-            credit -= nombre;
-
+            if (tour.HasValue)
+            {
+                this.credit -= tour.Value;
+            }
+            else
+            {
+                this.credit -= 1;
+            }
         }
         #endregion
 
