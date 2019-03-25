@@ -15,6 +15,7 @@ namespace Casino
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -34,6 +35,7 @@ namespace Casino
         {
 
         }
+
         // nombre de tirage souhaité (mode 2 )
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
