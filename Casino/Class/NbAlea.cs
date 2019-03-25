@@ -13,7 +13,7 @@ namespace Casino.Class
         public NbAlea()
         {
             Random rand = new Random();
-            this.nombre = rand.Next(1, 5);
+            this.nombre = rand.Next(1, 9);
         }
     }
 }
