@@ -26,7 +26,8 @@ namespace CodedUITest
         [TestMethod]
         public void CodedUITestMethod1()
         {
-            // Pour générer le code de ce test, sélectionnez "Générer le code pour le test codé de l'interface utilisateur" dans le menu contextuel et sélectionnez un des éléments de menu.
+            this.UIMap.RecordedAjouterArgent();
+            this.UIMap.AssertSoldeEgalA110();
         }
 
         #region Attributs de tests supplémentaires
